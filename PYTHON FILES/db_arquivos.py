@@ -1,6 +1,6 @@
-user = 'ocmvc45555'
+user = 'Murilo Brenner'
 pasta_proj_py = 'PYTHON'
-caminho1 = f'C:\\Users\\{user}\\Desktop'
+caminho1 = f'C:\\Users\\{user}\\Desktop\\{pasta_proj_py}'
 
 elaboration = f"{caminho1}\\CSV FILES\\ELABORATION.csv"
 abrir_ra = f"{caminho1}\\CSV FILES\\abrirRA.csv"
