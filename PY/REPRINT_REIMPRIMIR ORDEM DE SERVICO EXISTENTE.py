@@ -7,7 +7,7 @@ import shutil
 from db_login import login, driver
 from db_arquivos import elaboration, teste
 
-df = pd.read_csv(elaboration)
+df = pd.read_csv(teste)
 today = datetime.today()
 today = today.strftime("%d-%m-%Y")
 login()

@@ -5,6 +5,7 @@ import pandas as pd
 from db_login import login, driver
 from db_arquivos import prog_fisc, teste, elaboration
 from db_fiscais import fiscais
+import time
 
 df = pd.read_csv(teste)
 login()
@@ -12,7 +13,7 @@ login()
 today = datetime.today()
 tomorrow = datetime.today() + timedelta(days=1)
 segunda = datetime.today() + timedelta(days=3)
-data_prog = tomorrow
+data_prog = segunda
 data_prog = data_prog.strftime("%d/%m/%Y")
 
 driver.get("http://gsan.caema.ma.gov.br:8080/gsan/exibirElaborarOrdemServicoRoteiroCriteriosAction.do?menu=sim&filtro=0&dataRoteiro={}".format(data_prog))
@@ -41,5 +42,5 @@ for i in df.index:
         print(j, "Ordem de serviço {} não localizada. Falha na programação.".format(str(df['OS'][i])))
         driver.find_element(By.XPATH, "//input[@value=' << ']").click()
         pass
-
-driver.find_element(By.XPATH, "//input[@value='Concluir']").click()
+time.sleep(1111)
+#driver.find_element(By.XPATH, "//input[@value='Concluir']").click()

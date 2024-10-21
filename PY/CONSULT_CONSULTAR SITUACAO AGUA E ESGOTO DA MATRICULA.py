@@ -5,7 +5,7 @@ from db_login import login, driver
 from db_arquivos import elaboration, teste, inserir_imovel
 import csv
 
-df = pd.read_csv(inserir_imovel)
+df = pd.read_csv(elaboration)
 login()
 
 header = ['#', 'MATRICULA', 'AGUA', 'ESGOTO']

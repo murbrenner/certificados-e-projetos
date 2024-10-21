@@ -1,6 +1,0 @@
-- COHAB - fazer plano de execução OK
-- Status turu
-- status morada do sol
-- localização do morada do sol OK
-- levantamento do pessoal de campo (oq estão fazendo) OK
-- matrículas detalhadas da rota 112/06 

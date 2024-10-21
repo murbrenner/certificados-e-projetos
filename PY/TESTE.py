@@ -5,7 +5,7 @@ import pandas as pd
 import pyautogui
 import time
 
-dataframe = pd.read_csv("C:\\Users\\ocmvc45555\\Desktop\\PYTHON\\CSV\\dataframe.csv")
+dataframe = pd.read_csv("C:\\Users\\ocmvc45555\\Desktop\\OneDrive\\PYTHON\\CSV\\teste.csv")
 driver = webdriver.Edge()
 
 driver.get("http://gsan.caema.ma.gov.br:8080/gsan/")
