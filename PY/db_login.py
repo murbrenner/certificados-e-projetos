@@ -3,7 +3,7 @@ from selenium import webdriver
 import time
 
 driver = webdriver.Edge()
-driver.maximize_window()
+#driver.maximize_window()
 
 def login():
     driver.get("http://gsan.caema.ma.gov.br:8080/gsan/")
