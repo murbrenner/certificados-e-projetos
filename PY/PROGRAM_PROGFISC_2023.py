@@ -7,7 +7,7 @@ from db_arquivos import prog_fisc, teste, elaboration
 from db_fiscais import fiscais
 import time
 
-df = pd.read_csv(elaboration)
+df = pd.read_csv(teste)
 login()
 
 today = datetime.today()

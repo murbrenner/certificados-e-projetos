@@ -4,7 +4,7 @@ import pandas as pd
 from db_login import login, driver
 from db_arquivos import elaboration, teste
 
-df = pd.read_csv(elaboration)
+df = pd.read_csv(teste)
 login()
 
 driver.get("http://gsan.caema.ma.gov.br:8080/gsan/exibirFiltrarOrdemServicoAction.do?menu=sim")
@@ -18,7 +18,7 @@ with open(teste, mode="w", newline="") as teste:
 
     for i in df.index:
         num_os = str(df['OS'][i])        
-        driver.find_element(By.NAME, 'numeroOSParametro').send_keys(str(df['OS'][i]))
+        driver.find_element(By.NAME, 'numeroOSParametro').send_keys(num_os)
         driver.find_element(By.XPATH, "//input[@value='Pesquisar']").click()
         try:
             erro1 = driver.find_element(By.XPATH, "/html/body/table/tbody/tr/td/table[3]/tbody/tr[1]/td[2]/span").text
