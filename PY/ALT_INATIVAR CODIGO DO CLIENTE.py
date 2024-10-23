@@ -3,7 +3,6 @@ from selenium.webdriver.common.keys import Keys
 from db_arquivos import teste, elaboration
 from db_login import login, driver
 import pandas as pd
-import time, csv
 
 df = pd.read_csv(elaboration)
 login()
