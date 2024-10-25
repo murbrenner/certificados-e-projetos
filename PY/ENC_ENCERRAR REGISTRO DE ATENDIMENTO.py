@@ -4,7 +4,7 @@ import pandas as pd
 from db_login import login, driver
 from db_arquivos import elaboration, abrir_ra, teste
 
-df = pd.read_csv(abrir_ra)
+df = pd.read_csv(elaboration)
 login()
 
 for i in df.index:
