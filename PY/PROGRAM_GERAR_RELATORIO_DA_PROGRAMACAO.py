@@ -19,7 +19,7 @@ with open(teste, mode="w", newline="") as teste:
     #     today = datetime.today()
     for f in df:
         try:
-            today = datetime.today().strftime("%d/%m/%Y")
+            today = '29/10/2024'#datetime.today().strftime("%d/%m/%Y")
             driver.get("http://gsan.caema.ma.gov.br:8080/gsan/exibirAcompanharRoteiroProgramacaoOrdemServicoAction.do?menu=sim&filtro=0&dataRoteiro={}".format(today))
             driver.find_element(By.XPATH, "//*[@id='layerHide{}']/table/tbody/tr/td[1]/table/tbody/tr/td[2]/a/b".format(num_nomes_joined[f])).click()
         except:

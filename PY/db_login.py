@@ -8,7 +8,7 @@ driver = webdriver.Edge()
 def login():
     driver.get("http://gsan.caema.ma.gov.br:8080/gsan/")
     driver.find_element(By.NAME, 'login').send_keys('BRENNER')
-    driver.find_element(By.NAME, 'senha').send_keys('Dram512@')
+    driver.find_element(By.NAME, 'senha').send_keys('Ram1024@')
     driver.find_element(By.NAME, 'buttonLogin').click()
 
 def enc():
