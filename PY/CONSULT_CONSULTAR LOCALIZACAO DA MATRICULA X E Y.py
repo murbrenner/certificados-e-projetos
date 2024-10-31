@@ -23,7 +23,13 @@ with open(teste, mode="w", newline="") as teste:
             driver.find_element(By.NAME, "idImovelDadosCadastrais").send_keys(matricula, Keys.ENTER)
             codif = driver.find_element(By.NAME, "matriculaImovelDadosCadastrais").get_attribute('value')
             coordx = driver.find_element(By.NAME, "coordenadaXDadosCadastrais").get_attribute('value')
+            if coordx == '':
+                coordx = '0'
+            coordx = coordx.replace('.', ',')
             coordy = driver.find_element(By.NAME, "coordenadaYDadosCadastrais").get_attribute('value')
+            if coordy == '':
+                coordy = '0'
+            coordy = coordy.replace('.', ',')
             linha = matricula, coordx, coordy
             escritor.writerow(linha)
         elif matricula == "0":

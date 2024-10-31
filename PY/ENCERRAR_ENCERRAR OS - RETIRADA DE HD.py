@@ -14,17 +14,22 @@ hoje = hoje.strftime("%d/%m/%Y")
 motivo = "CONCLUSAO DO SERVIÇO"
 
 for i in df.index:
-    driver.get("http://gsan.caema.ma.gov.br:8080/gsan/exibirFiltrarOrdemServicoAction.do?menu=sim")
-    os = driver.find_element(By.NAME, "numeroOS").send_keys(str(df['OS'][i]), Keys.ENTER)
+    matricula = str(df['MATRICULA'][i])
+    os = str(df['OS'][i])
+    observacao = str(df['OBSERVACAO'][i])
+    leitura = int(df['LEITURA'][i])
+    
+    driver.get("http://gsan.caema.ma.gov.br:8080/gsan/exibirFiltrarOrdemServicoAction.do?menu=sim") 
+    driver.find_element(By.NAME, "numeroOS").send_keys(os, Keys.ENTER)
     driver.find_element(By.XPATH, "//input[@value='Filtrar']").click()
     sit_os = driver.find_element(By.NAME, "situacaoOS").get_attribute('value')    
     if sit_os == 'Encerrada':
-        print(i + 1, str(df['MATRICULA'][i]),  "ORDEM DE SERVIÇO ENCERRADA", sep=';')
+        print(i + 1, matricula,  "ORDEM DE SERVIÇO ENCERRADA", sep=';')
     elif sit_os == 'Pendente':
         driver.find_element(By.XPATH, "//input[@value='Encerrar']").click()
         driver.find_element(By.NAME, "dataEncerramento").send_keys(hoje)
         driver.find_element(By.NAME, "idMotivoEncerramento").send_keys(motivo)
-        driver.find_element(By.NAME, "observacaoEncerramento").send_keys(str(df['OBSERVACAO'][i]))
+        driver.find_element(By.NAME, "observacaoEncerramento").send_keys(observacao)
         driver.find_element(By.NAME, "ButtonAtividade").click()
         popup = driver.window_handles[1]
         janela = driver.window_handles[0]
@@ -41,8 +46,7 @@ for i in df.index:
         time.sleep(0.3)
         driver.switch_to.window(janela)
         driver.find_element(By.NAME, "ButtonEncerrar").click()
-        time.sleep(0.2)
-        leitura = int(df['LEITURA'][i])
+        time.sleep(0.2)        
         try:                        
             driver.find_element(By.NAME, "numeroLeitura").clear()            
             driver.find_element(By.NAME, "numeroLeitura").send_keys(leitura)            
@@ -55,7 +59,7 @@ for i in df.index:
                 print(i + 1, msg_ok, sep=';')
             except:
                 msg_er = driver.find_element(By.XPATH, "/html/body/table/tbody/tr/td/table[3]/tbody/tr[1]/td[2]/span").text
-                print(i + 1, str(df['MATRICULA'][i]), msg_er, sep=';')
+                print(i + 1, matricula, msg_er, sep=';')
                 pass
             try:
                 driver.find_element(By.XPATH, "//input[@value='Cancelar']").click()
@@ -67,7 +71,7 @@ for i in df.index:
         except:
             try:
                 msg_er = driver.find_element(By.XPATH, "/html/body/table/tbody/tr/td/table[3]/tbody/tr[1]/td[2]/span").text
-                print(i + 1, str(df['MATRICULA'][i]), msg_er, sep=';')
+                print(i + 1, matricula, msg_er, sep=';')
             except:
                 print(i + 1, "erro2", sep=';')
                 time.sleep(1111)
