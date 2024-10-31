@@ -1,18 +1,24 @@
-user = 'ocmvc45555'
-pasta_proj_py = 'OneDrive\\PYTHON\\CSV'
-caminho1 = f'C:\\Users\\{user}\\Desktop\\{pasta_proj_py}\\'
+#USERS
+user = 'C:\\Users\\ocmvc45555\\'
+user2 = 'C:\\Users\\Murilo Brenner\\'
 
-elaboration = f"{caminho1}\\ELABORATION.csv"
-abrir_ra = f"{caminho1}\\abrirRA.csv"
-elab_date = f"{caminho1}\\ELABORATION_DATE.csv"
-gerar_cad = f"{caminho1}\\GERAR_CAD.csv"
-listagem = f"{caminho1}\\gerar-relat.csv"
-prog_fisc = f"{caminho1}\\PROGFISC.csv"
-tramite = f"{caminho1}\\TRAMITE.csv"
-cpf = f"{caminho1}\\CPF.csv"
-teste = f"{caminho1}\\teste.csv"
-relatorio_prog = f"{caminho1}\\relatorio_prog.csv"
-teste2 = f"{caminho1}\\teste2.csv"
-inserir_imovel = f"{caminho1}\\inserirImovel.csv"
-down_path = f"C:\\Users\\{user}\\Downloads"
-desprog_fisc = f"{caminho1}\\DESPROGFISC.csv"
+#MUDAR O USER AQUI
+pasta_proj_py = 'Desktop\\OneDrive\\PYTHON\\CSV\\'
+downloads = f'{user}\\Downloads'
+caminho = f'{user}{pasta_proj_py}'
+
+#DEIXE COMO ESTÁ
+elaboration = f"{caminho}\\ELABORATION.csv"
+abrir_ra = f"{caminho}\\abrirRA.csv"
+elab_date = f"{caminho}\\ELABORATION_DATE.csv"
+gerar_cad = f"{caminho}\\GERAR_CAD.csv"
+listagem = f"{caminho}gerar-relat.csv"
+prog_fisc = f"{caminho}\\PROGFISC.csv"
+tramite = f"{caminho}\\TRAMITE.csv"
+cpf = f"{caminho}\\CPF.csv"
+teste = f"{caminho}\\teste.csv"
+relatorio_prog = f"{caminho}\\relatorio_prog.csv"
+teste2 = f"{caminho}\\teste2.csv"
+inserir_imovel = f"{caminho}\\inserirImovel.csv"
+down_path = downloads
+desprog_fisc = f"{caminho}\\DESPROGFISC.csv"
