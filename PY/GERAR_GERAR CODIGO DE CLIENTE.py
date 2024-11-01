@@ -38,6 +38,7 @@ with open(teste, mode="w", newline="") as teste:
         numero = str(df['NUMERO'][i])
         complemento = str(df['COMPLEMENTO'][i])
         telefone = str(df['TELEFONE'][i])
+        cep_gsan = int(df['CEP_GSAN'][i])
                 
         if cod == 0:            
             if pf == 1:
@@ -79,8 +80,8 @@ with open(teste, mode="w", newline="") as teste:
                 driver.find_element(By.NAME, "tipo").send_keys('01 - RESIDENCIAL')
                 time.sleep(0.2)
                 driver.find_element(By.NAME, "logradouro").send_keys(cod_log, Keys.ENTER)              
-                #time.sleep(0.2)                
-                #driver.find_element(By.XPATH, "//input[@value='1']").click()
+                time.sleep(0.2)                
+                driver.find_element(By.XPATH, "//input[@value='{}']".format(cep_gsan)).click()
                 time.sleep(0.2)   
                 driver.find_element(By.NAME, "bairro").send_keys(bairro)
                 time.sleep(0.2)

@@ -20,7 +20,8 @@ with open(teste, mode="w", newline="") as teste:
         tipo_hab = str(df['TIPO_HAB'][i])
         complemento = str(df['COMPLEMENTO'][i])
         cx = str(df['CX'][i])
-        cy = str(df['CY'][i])  
+        cy = str(df['CY'][i])
+        cep_gsan = int(df['CEP_GSAN'][i])        
 
         if matricula == 0:
             driver.get("http://gsan.caema.ma.gov.br:8080/gsan/exibirInserirImovelAction.do?menu=sim")
@@ -45,13 +46,9 @@ with open(teste, mode="w", newline="") as teste:
             driver.switch_to.window(janela_endereco)
             time.sleep(0.2)
             driver.find_element(By.NAME, "logradouro").send_keys(str(df['COD_LOG'][i]), Keys.ENTER)
-            # try:
-            #     driver.find_element(By.XPATH, "//input[@value='1']").click()
-            #     driver.find_element(By.NAME, "cepSelecionado").click()
-            # except:
-            #     pass
-            #driver.find_element(By.XPATH, "//input[@value='7018']").click()
             time.sleep(0.2)
+            driver.find_element(By.XPATH, "//input[@value='{}']".format(cep_gsan)).click()
+            time.sleep(0.2)            
             driver.find_element(By.NAME, "bairro").send_keys(str(df['BAIRRO'][i]))
             time.sleep(0.2)
             driver.find_element(By.NAME, "numero").send_keys(str(df['NUMERO'][i]))

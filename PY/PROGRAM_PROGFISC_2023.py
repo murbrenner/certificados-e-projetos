@@ -14,7 +14,7 @@ today = datetime.today()
 tomorrow = datetime.today() + timedelta(days=1)
 segunda = datetime.today() + timedelta(days=3)
 another_day = datetime.today() + timedelta(days=4)
-data_prog = today
+data_prog = segunda
 data_prog = data_prog.strftime("%d/%m/%Y")
 
 driver.get("http://gsan.caema.ma.gov.br:8080/gsan/exibirElaborarOrdemServicoRoteiroCriteriosAction.do?menu=sim&filtro=0&dataRoteiro={}".format(data_prog))
