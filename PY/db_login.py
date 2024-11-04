@@ -1,14 +1,17 @@
 from selenium.webdriver.common.by import By
 from selenium import webdriver
-import time
+import time, os
 
 driver = webdriver.Edge()
 #driver.maximize_window()
 
+user = os.environ.get('USR')
+senha = os.environ.get('PWD')
+
 def login():
     driver.get("http://gsan.caema.ma.gov.br:8080/gsan/")
-    driver.find_element(By.NAME, 'login').send_keys('BRENNER')
-    driver.find_element(By.NAME, 'senha').send_keys('Ram1024@')
+    driver.find_element(By.NAME, 'login').send_keys(user)
+    driver.find_element(By.NAME, 'senha').send_keys(senha)
     driver.find_element(By.NAME, 'buttonLogin').click()
 
 def enc():
