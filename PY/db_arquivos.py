@@ -5,7 +5,7 @@ user2 = 'C:\\Users\\Murilo Brenner\\'
 #MUDAR O USER AQUI
 pasta_proj_py = 'Desktop\\OneDrive\\PYTHON\\CSV\\'
 downloads = f'{user}\\Downloads'
-caminho = f'{user2}{pasta_proj_py}'
+caminho = f'{user}{pasta_proj_py}'
 
 #DEIXE COMO ESTÁ
 elaboration = f"{caminho}\\ELABORATION.csv"
