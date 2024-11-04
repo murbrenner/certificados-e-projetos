@@ -2,7 +2,7 @@ import time, os, glob, subprocess
 from selenium.webdriver.common.by import By
 import pandas as pd
 from db_login import login, driver
-from db_arquivos import listagem, down_path 
+from db_arquivos import listagem, down_path
 
 df = pd.read_csv(listagem)
 login()
