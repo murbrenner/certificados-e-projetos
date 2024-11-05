@@ -3,16 +3,16 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 import pandas as pd
 from db_login import login, driver
-from db_arquivos import elaboration
+from db_arquivos import elaboration, teste
 
-df = pd.read_csv(elaboration)
+df = pd.read_csv(teste)
 login()
 
 for i in df.index:
     driver.get("http://gsan.caema.ma.gov.br:8080/gsan/exibirInserirQuadraAction.do?menu=sim")
 
     local = int(df['LOCAL'][i])
-    grupo = int(df['GRUPO'][i])
+    setor = int(df['SETOR'][i])
     quadra = int(df['QUADRA'][i])
     rota = int(df['ROTA'][i])
     cod_bairro = int(df['COD_BAIRRO'][i])
@@ -31,7 +31,7 @@ for i in df.index:
     z99_br135 = 12
 
     driver.find_element(By.NAME, "localidadeID").send_keys(local, Keys.ENTER)
-    driver.find_element(By.NAME, "setorComercialCD").send_keys(grupo, Keys.ENTER)
+    driver.find_element(By.NAME, "setorComercialCD").send_keys(setor, Keys.ENTER)
     driver.find_element(By.NAME, "quadraNM").clear()
     driver.find_element(By.NAME, "quadraNM").send_keys(quadra, Keys.ENTER)
     driver.find_element(By.NAME, "codigoRota").send_keys(rota, Keys.ENTER)
@@ -50,7 +50,7 @@ for i in df.index:
     time.sleep(0.2)
     driver.find_element(By.NAME, "distritoOperacionalID").send_keys(z5c_olho, Keys.ENTER)
     driver.find_element(By.NAME, "setorCensitarioID").send_keys('1', Keys.ENTER)
-    driver.find_element(By.NAME, "zeisID").send_keys('ZEIS 1')    
+    driver.find_element(By.NAME, "zeisID").send_keys('ZEIS 1')       
     driver.find_element(By.XPATH, "//input[@value='Inserir']").click()
     try:
         msg_ok = driver.find_element(By.XPATH, "/html/body/table[2]/tbody/tr/td/table[3]/tbody/tr[1]/td[2]/div/span").text    

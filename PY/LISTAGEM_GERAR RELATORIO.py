@@ -13,7 +13,7 @@ for i in df.index:
     driver.find_element(By.NAME, 'localidadeOrigemID').clear()
     driver.find_element(By.NAME, 'localidadeOrigemID').send_keys(str(df['LOCAL'][i]))
     driver.find_element(By.NAME, 'setorComercialOrigemCD').clear()
-    driver.find_element(By.NAME, 'setorComercialOrigemCD').send_keys(str(df['GRUPO'][i]))
+    driver.find_element(By.NAME, 'setorComercialOrigemCD').send_keys(str(df['SETOR'][i]))
     driver.find_element(By.NAME, 'cdRotaInicial').clear()
     driver.find_element(By.NAME, 'cdRotaInicial').send_keys(str(df['ROTA'][i]))
     msg_ero = driver.find_element(By.NAME, "descRotaInicial").get_attribute('value')
@@ -22,11 +22,11 @@ for i in df.index:
     driver.find_element(By.XPATH, "//input[@value='Gerar']").click()
     try:
         batch_ero = driver.find_element(By.XPATH, "/html/body/div[1]/form/table/tbody/tr/td/table[3]/tbody/tr[1]/td[2]/span").text
-        print(str(df['GRUPO'][i]), "/", str(df['ROTA'][i]), " - ", msg_ero.capitalize(), ".", sep='')
+        print(str(df['SETOR'][i]), "/", str(df['ROTA'][i]), " - ", msg_ero.capitalize(), ".", sep='')
     except:
         pass
         msg_ok = driver.find_element(By.XPATH, '/html/body/table[2]/tbody/tr/td/table[3]/tbody/tr[1]/td[2]/div/span').text
-        print(str(df['GRUPO'][i]), "/", str(df['ROTA'][i]), " - ", msg_ok, sep='')
+        print(str(df['SETOR'][i]), "/", str(df['ROTA'][i]), " - ", msg_ok, sep='')
 
         time.sleep(2)
         caminho_pasta_downloads = down_path

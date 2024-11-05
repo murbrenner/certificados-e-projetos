@@ -5,7 +5,7 @@ from db_login import login, driver
 from db_arquivos import elaboration, inserir_imovel
 import time
 
-df = pd.read_csv(inserir_imovel)
+df = pd.read_csv(elaboration)
 login()
 
 for i in df.index:   

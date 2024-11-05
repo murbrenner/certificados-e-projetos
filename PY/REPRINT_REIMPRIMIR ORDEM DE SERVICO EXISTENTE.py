@@ -10,18 +10,21 @@ from db_arquivos import elaboration, teste
 df = pd.read_csv(teste)
 today = datetime.today()
 today = today.strftime("%d-%m-%Y")
+tomorrow = datetime.today() + timedelta(days=1)
+tomorrow = tomorrow.strftime("%d-%m-%Y")
 login()
 
 #caminho = os.mkdir(r"C:\Users\Murilo\Desktop\SERVIÇO")
-caminho = "C:\\Users\\ocmvc45555\\Desktop\\SERVIÇO-{}".format(today)
+caminho = "C:\\Users\\ocmvc45555\\Desktop\\SERVIÇO-{}".format(tomorrow)
 if os.path.exists(caminho):
     pass
 else:
     os.makedirs(caminho)
 
 for i in df.index:
+    num_os = str(df['OS'][i])
     driver.get("http://gsan.caema.ma.gov.br:8080/gsan/exibirFiltrarOrdemServicoAction.do?menu=sim")
-    driver.find_element(By.NAME, "numeroOS").send_keys(str(df['OS'][i]))
+    driver.find_element(By.NAME, "numeroOS").send_keys(num_os)
     driver.find_element(By.XPATH, "//input[@value='Filtrar']").click()
     driver.find_element(By.PARTIAL_LINK_TEXT,"Dados do Local da Ocorrência").click()
     rra = driver.find_element(By.NAME, "numeroRA").get_attribute("value")
@@ -44,10 +47,10 @@ for i in df.index:
     latest_file = max(full_path, key=os.path.getmtime)
 
     try:
-        os.renames(latest_file, "C:\\Users\\ocmvc45555\\Downloads\\{}_{}.pdf".format(j, str(df['OS'][i])))
+        os.renames(latest_file, "C:\\Users\\ocmvc45555\\Downloads\\{}_{}.pdf".format(j, num_os))
     except:
-        os.replace(latest_file, "C:\\Users\\ocmvc45555\\Downloads\\{}_{}.pdf".format(j, str(df['OS'][i])))
+        os.replace(latest_file, "C:\\Users\\ocmvc45555\\Downloads\\{}_{}.pdf".format(j, num_os))
 
     # COPIA O ARQUIVO MAIS RECENTE DA PASTA DOWNLOADS PARA A PASTA COM O NUMERO DA R.A
-    shutil.move("C:\\Users\\ocmvc45555\\Downloads\\{}_{}.pdf".format(j, str(df['OS'][i])), destination_path)
+    shutil.move("C:\\Users\\ocmvc45555\\Downloads\\{}_{}.pdf".format(j, num_os), destination_path)
 

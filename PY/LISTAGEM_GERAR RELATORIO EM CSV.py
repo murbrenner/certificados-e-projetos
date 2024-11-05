@@ -11,7 +11,7 @@ login()
 for i in df.index:
     driver.get("http://gsan.caema.ma.gov.br:8080/gsan/exibirFiltrarImovelOutrosCriteriosConsumidoresInscricao.do?menu=sim&gerarRelatorio=RelatorioCadastroConsumidoresInscricao")
     driver.find_element(By.NAME, 'localidadeOrigemID').send_keys(str(df['LOCAL'][i]))
-    driver.find_element(By.NAME, 'setorComercialOrigemCD').send_keys(str(df['GRUPO'][i]))
+    driver.find_element(By.NAME, 'setorComercialOrigemCD').send_keys(str(df['SETOR'][i]))
     driver.find_element(By.NAME, 'cdRotaInicial').send_keys(str(df['ROTA'][i]))
     msg_ero = driver.find_element(By.NAME, "descRotaInicial").get_attribute('value')
     driver.find_element(By.NAME, 'ordenacaoRelatorio').send_keys('R')
@@ -28,11 +28,11 @@ for i in df.index:
     except:
         try:
             batch_ero2 = driver.find_element(By.XPATH, "/html/body/table/tbody/tr/td/table[3]/tbody/tr[1]/td[2]/span").text
-            print(str(df['GRUPO'][i]), "/", str(df['ROTA'][i]), " - ", batch_ero2)
+            print(str(df['SETOR'][i]), "/", str(df['ROTA'][i]), " - ", batch_ero2)
         except:
             pass
             msg_ok = driver.find_element(By.XPATH, '/html/body/table[2]/tbody/tr/td/table[3]/tbody/tr[1]/td[2]/div/span').text
-            print(str(df['GRUPO'][i]), "/", str(df['ROTA'][i]), " - ", msg_ok, sep='')
+            print(str(df['SETOR'][i]), "/", str(df['ROTA'][i]), " - ", msg_ok, sep='')
             pass
 
         time.sleep(2)
