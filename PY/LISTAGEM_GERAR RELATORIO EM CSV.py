@@ -35,7 +35,7 @@ for i in df.index:
             print(str(df['SETOR'][i]), "/", str(df['ROTA'][i]), " - ", msg_ok, sep='')
             pass
 
-        time.sleep(2)
+        time.sleep(3)
 
         caminho_pasta_downloads = down_path
         arquivos_csv = glob.glob(os.path.join(caminho_pasta_downloads, '*.csv'))

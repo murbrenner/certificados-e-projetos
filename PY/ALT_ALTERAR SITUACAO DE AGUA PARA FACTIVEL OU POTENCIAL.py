@@ -5,7 +5,7 @@ import pandas as pd
 from db_login import login, driver
 from db_arquivos import teste, elaboration, abrir_ra
 
-df = pd.read_csv(elaboration)
+df = pd.read_csv(abrir_ra)
 login()
 
 nova_situacao = 'FACTIVEL'
