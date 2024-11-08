@@ -4,8 +4,7 @@ import pandas as pd
 from db_login import login, driver
 from db_arquivos import abrir_ra, elaboration, teste
 
-df = pd.read_csv(teste)
-df2 = pd.read_csv(abrir_ra)# SOMENTE PRA PEGAR A OBSERVACAO!!!!
+df = pd.read_csv(abrir_ra)# SOMENTE PRA PEGAR A OBSERVACAO!!!!
 login()
 
 situacao = 'FACTIVEL'
@@ -33,7 +32,7 @@ for i in df.index:
             driver.find_element(By.NAME, "ButtonEncerrar").click()
             try:
                 driver.find_element(By.NAME, "motivoEncerramentoId").send_keys('CONCLUSAO DO SERVICO')#INDEFERIDO
-                driver.find_element(By.NAME, "parecerEncerramento").send_keys(str(df2['OBSERVACAO'][i]))
+                driver.find_element(By.NAME, "parecerEncerramento").send_keys(str(df['OBSERVACAO'][i]))
             except:
                 pass
                 #driver.find_element(By.NAME, "motivoEncerramentoId").send_keys('DEFERIDO')

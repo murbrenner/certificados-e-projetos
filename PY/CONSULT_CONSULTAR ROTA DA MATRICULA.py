@@ -5,7 +5,7 @@ from db_login import login, driver
 from db_arquivos import elaboration, teste, inserir_imovel
 import csv, time
 
-df = pd.read_csv(inserir_imovel)
+df = pd.read_csv(elaboration)
 login()
 
 cabeçalho = ['#', 'MATRICULA', 'LOCAL', 'SETOR', 'QUADRA', 'SEQUENCIA', 'SUBLOTE', 'ROTA']
@@ -15,11 +15,10 @@ with open(teste, mode="w", newline="") as teste:
 
     for i in df.index:
         driver.get("http://gsan.caema.ma.gov.br:8080/gsan/exibirConsultarImovelAction.do?menu=sim")
-        driver.find_element(By.ID, "1").click()
-        matricula = str(df['MATRICULA'][i])
-        driver.find_element(By.NAME, "idImovelDadosCadastrais").send_keys(matricula, Keys.ENTER)
-        roteirizacao = driver.find_element(By.NAME, "matriculaImovelDadosCadastrais").get_attribute('value')
         driver.find_element(By.ID, "3").click()
+        matricula = str(df['MATRICULA'][i])
+        driver.find_element(By.NAME, "idImovelAnaliseMedicaoConsumo").send_keys(matricula, Keys.ENTER)
+        roteirizacao = driver.find_element(By.NAME, "matriculaImovelAnaliseMedicaoConsumo").get_attribute('value')        
         rota = driver.find_element(By.XPATH, "/html/body/form/table[3]/tbody/tr/td[2]/table[3]/tbody/tr[3]/td/table/tbody/tr[2]/td[5]/div").text
         local = roteirizacao[:3]
         setor = roteirizacao[4:7]
