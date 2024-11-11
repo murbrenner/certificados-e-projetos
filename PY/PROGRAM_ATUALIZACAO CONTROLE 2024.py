@@ -5,7 +5,7 @@ from selenium.webdriver.common.keys import Keys
 import pandas as pd
 from db_login import enc, driver
 from db_arquivos import inserir_imovel, elaboration
-import pyautogui
+import pyautogui 
 from db_fiscais import abrev_nomes_joined
 
 df = pd.read_csv(elaboration)
