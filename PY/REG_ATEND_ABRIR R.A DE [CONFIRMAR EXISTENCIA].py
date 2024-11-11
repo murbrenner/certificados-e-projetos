@@ -3,7 +3,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 import pandas as pd
 from db_arquivos import abrir_ra, teste
-from db_login import login, driver
+from db_login import login, driver, log_teste
 import csv
 
 df = pd.read_csv(abrir_ra)
@@ -40,7 +40,6 @@ with open(teste, mode="w", newline="") as teste:
         except:
             pass
 
-
         try:
             inex = driver.find_element(By.NAME, "inscricaoImovel").get_attribute("value")
             if inex == "Imóvel Inexistente":
@@ -69,6 +68,12 @@ with open(teste, mode="w", newline="") as teste:
                     time.sleep(0.2)
                     driver.find_element(By.NAME, "concluir").click()
                     time.sleep(0.2)
+
+                    driver.find_element(By.LINK_TEXT, "Gerar OS").click() 
+                    driver.find_element(By.NAME, "idServicoTipo").send_keys("CONFIRMAR EXISTENCIA DE LIGACAO ESGOTO")
+                    driver.find_element(By.XPATH, "//input[@value='Gerar']").click()
+
+                    time.sleep(0.2)
                     txt = driver.find_element(By.CSS_SELECTOR,
                                               'body > table:nth-child(5) > tbody > tr > td > table:nth-child(3) > tbody > tr:nth-child(1) > td:nth-child(2) > div > span').text
                     num = re.findall(r'\d+', txt)
@@ -81,7 +86,8 @@ with open(teste, mode="w", newline="") as teste:
                     time.sleep(0.2)
                     linha = (j, str(df['MATRICULA'][i]), num_ra_ok, num_os)
                     escritor.writerow(linha)
-                    time.sleep(0.2)
+                    time.sleep(0.2)                   
+
                 except:
                     erro1 = driver.find_element(By.XPATH, "/html/body/table/tbody/tr/td/table[3]/tbody/tr[1]/td[2]/span").text
                     j = i + 1

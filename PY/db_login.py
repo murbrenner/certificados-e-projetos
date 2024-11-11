@@ -13,6 +13,12 @@ def login():
     driver.find_element(By.NAME, 'senha').send_keys(senha)
     driver.find_element(By.NAME, 'buttonLogin').click()
 
+def log_teste():
+    driver.get("https://c1.caema.ma.gov.br/gsan/")
+    driver.find_element(By.NAME, 'login').send_keys(user)
+    driver.find_element(By.NAME, 'senha').send_keys(senha)
+    driver.find_element(By.NAME, 'buttonLogin').click()
+
 def enc():
     driver.maximize_window()
     driver.get("https://docs.google.com/spreadsheets/d/1HhG9YARARX16EkQybElZ2HvC8IlR8QY-qSFL8fFphN4/edit?pli=1#gid=1805539427")
