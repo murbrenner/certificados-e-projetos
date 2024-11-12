@@ -5,7 +5,7 @@ import pandas as pd
 from db_login import login, driver
 from db_arquivos import inserir_imovel, elaboration, abrir_ra
 
-df = pd.read_csv(abrir_ra)
+df = pd.read_csv(elaboration)
 login()
 
 for i in df.index:
@@ -16,7 +16,7 @@ for i in df.index:
     try:
         nome_user = driver.find_element(By.XPATH, "/html/body/form/table[3]/tbody/tr/td[2]/table[2]/tbody/tr[3]/td/table/tbody/tr[1]/td/table/tbody/tr[3]/td/div/table/tbody/tr/td[1]/div/font/a").text
         doc = driver.find_element(By.XPATH, "/html/body/form/table[3]/tbody/tr/td[2]/table[2]/tbody/tr[3]/td/table/tbody/tr[1]/td/table/tbody/tr[3]/td/div/table/tbody/tr/td[5]/font/a/font").text        
-        print(i+1, nome_user, doc)
+        print(i+1, f"[{nome_user}]", f"[{doc}]")
     except:        
         try:
             nome_user = driver.find_element(By.XPATH, "/html/body/form/table[3]/tbody/tr/td[2]/table[2]/tbody/tr[3]/td/table/tbody/tr[1]/td/table/tbody/tr[3]/td/div/table/tbody/tr[1]/td[1]/div/font/a").text
@@ -25,5 +25,5 @@ for i in df.index:
             doc = driver.find_element(By.XPATH, "/html/body/form/table[3]/tbody/tr/td[2]/table[2]/tbody/tr[3]/td/table/tbody/tr[1]/td/table/tbody/tr[3]/td/div/table/tbody/tr[3]/td[5]/font/a/font").text
             print(i+1, nome_user, doc)          
         except:
-            print(i+1, nome_user, "SEM CPF")
+            print(i+1, f"[{nome_user}]", "[SEM CPF]")
             pass

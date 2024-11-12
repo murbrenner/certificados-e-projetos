@@ -160,6 +160,7 @@ with open(teste, mode="w", newline="") as teste:
                     driver.find_element(By.NAME, "telefone").send_keys(telefone)
                     driver.find_element(By.NAME, "contato").send_keys(nome)
                     driver.find_element(By.XPATH, "//input[@value='Adicionar']").click()
+
             
             driver.find_element(By.XPATH, "//input[@value='Concluir']").click()
 
