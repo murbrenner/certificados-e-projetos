@@ -4,11 +4,11 @@ from db_login import login, driver
 from db_arquivos import inserir_imovel, elaboration
 from db_funcoes import cpf_ok
 
-df = pd.read_csv(elaboration)
+df = pd.read_csv(inserir_imovel)
 login()
 
 for i in df.index:
-    driver.get("https://gsan.caema.ma.gov.br/gsan/exibirFiltrarClienteAction.do?menu=sim")
+    driver.get("http://gsan.caema.ma.gov.br:8080/gsan/exibirFiltrarClienteAction.do?menu=sim")
     cpf = str(df['CPF'][i])
     cpf = cpf_ok(cpf)
 

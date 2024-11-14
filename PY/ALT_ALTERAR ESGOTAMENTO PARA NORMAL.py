@@ -44,7 +44,7 @@ for i in df.index:
         pass
     elif v_area_const == '0,00' or '':
         area_const.clear()
-        area_const.send_keys('12800')
+        area_const.send_keys('4800')
 
     driver.find_element(By.XPATH, "//input[@value='Concluir']").click()
 
