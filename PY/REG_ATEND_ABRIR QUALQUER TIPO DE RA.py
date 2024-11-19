@@ -21,8 +21,8 @@ with open(teste, mode="w", newline="") as teste:
         driver.get('http://gsan.caema.ma.gov.br:8080/gsan/exibirInserirRegistroAtendimentoAction.do?menu=sim')
         driver.find_element(By.NAME, "unidade").clear()
         driver.find_element(By.NAME, "unidade").send_keys('549', Keys.ENTER)
-        driver.find_element(By.NAME, "tipoSolicitacao").send_keys('1.02')
-        driver.find_element(By.NAME, "especificacao").send_keys('RETIFICACAO DE FATURA')
+        driver.find_element(By.NAME, "tipoSolicitacao").send_keys('2.04')
+        driver.find_element(By.NAME, "especificacao").send_keys('ALTERAR AGUA DE LIGADO PARA CORTADO')
         try:
             popup = driver.switch_to.alert
             popup.accept()

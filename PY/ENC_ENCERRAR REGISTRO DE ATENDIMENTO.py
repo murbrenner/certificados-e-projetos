@@ -9,7 +9,7 @@ login()
 
 for i in df.index:
     num_ra = str(df['RA'][i])
-    observacao = str(df['OBSERVACAO'][i])
+    #observacao = str(df['OBSERVACAO'][i])
     driver.get("http://gsan.caema.ma.gov.br:8080/gsan/exibirFiltrarRegistroAtendimentoAction.do?menu=sim")
     driver.find_element(By.NAME, "numeroRA").send_keys(num_ra, Keys.ENTER)
     driver.find_element(By.XPATH, "//input[@value='Filtrar']").click()
@@ -17,8 +17,8 @@ for i in df.index:
     if sit_ra == 'Pendente':
         driver.find_element(By.NAME, "ButtonEncerrar").click()
         try:
-            driver.find_element(By.NAME, "motivoEncerramentoId").send_keys('INDEFERIDO')#INDEFERIDO
-            driver.find_element(By.NAME, "parecerEncerramento").send_keys(observacao)#CANCELAMENTO PELA CAEMA
+            driver.find_element(By.NAME, "motivoEncerramentoId").send_keys('CANCELAMENTO PELA CAEMA')#INDEFERIDO
+            driver.find_element(By.NAME, "parecerEncerramento").send_keys(' ')#observacao)#CANCELAMENTO PELA CAEMA
         except:
             pass
             #driver.find_element(By.NAME, "motivoEncerramentoId").send_keys('DEFERIDO')
