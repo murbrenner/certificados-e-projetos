@@ -4,7 +4,7 @@ import pandas as pd
 from db_login import login, driver
 from db_arquivos import desprog_fisc, elaboration, prog_fisc, teste
 
-df = pd.read_csv(teste)
+df = pd.read_csv(elaboration)
 login()
 
 for i in df.index:
