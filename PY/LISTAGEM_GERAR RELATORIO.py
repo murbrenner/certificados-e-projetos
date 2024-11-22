@@ -28,7 +28,7 @@ for i in df.index:
         msg_ok = driver.find_element(By.XPATH, '/html/body/table[2]/tbody/tr/td/table[3]/tbody/tr[1]/td[2]/div/span').text
         print(str(df['SETOR'][i]), "/", str(df['ROTA'][i]), " - ", msg_ok, sep='')
 
-        time.sleep(2)
+        time.sleep(3)
         caminho_pasta_downloads = down_path
         arquivos_pdf = glob.glob(os.path.join(caminho_pasta_downloads, '*.pdf'))
         arquivos_pdf = sorted(arquivos_pdf, key=os.path.getmtime, reverse=True)
