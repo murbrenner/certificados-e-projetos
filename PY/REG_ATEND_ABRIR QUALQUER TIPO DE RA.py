@@ -19,10 +19,10 @@ with open(teste, mode="w", newline="") as teste:
         #nhd = str(df['HIDROMETRO'][i])
         #leitura = str(df['LEITURA'][i])
         driver.get('http://gsan.caema.ma.gov.br:8080/gsan/exibirInserirRegistroAtendimentoAction.do?menu=sim')
-        driver.find_element(By.NAME, "unidade").clear()
-        driver.find_element(By.NAME, "unidade").send_keys('550', Keys.ENTER)
+        #driver.find_element(By.NAME, "unidade").clear()
+        #driver.find_element(By.NAME, "unidade").send_keys('550', Keys.ENTER)
         driver.find_element(By.NAME, "tipoSolicitacao").send_keys('2.04')
-        driver.find_element(By.NAME, "especificacao").send_keys('ALTERAR AGUA DE LIGADO PARA CORTADO')
+        driver.find_element(By.NAME, "especificacao").send_keys('LEVANTAMENTO DE DADOS PARA ATUALIZACAO CADASTRAL')
         try:
             popup = driver.switch_to.alert
             popup.accept()
