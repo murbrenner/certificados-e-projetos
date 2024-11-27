@@ -38,7 +38,7 @@ for i in df.index:
                 driver.find_element(By.XPATH, f"//*[@value='Concluir']").click()
                 
                 try:
-                    driver.find_element(By.XPATH, f"//*[@value='Sim']").click()
+                    driver.find_element(By.XPATH, f"//*[@value='Não']").click()
                 except:
                     pass
                 try:
