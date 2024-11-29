@@ -60,6 +60,4 @@ with open(teste, mode="w", newline="") as teste:
                     escritor.writerow(linha)                
                 except:                
                     pass
-                j = j + 1 
-
-
+                j = j + 1
