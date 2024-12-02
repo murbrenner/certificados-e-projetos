@@ -22,7 +22,7 @@ with open(teste, mode="w", newline="") as teste:
         #driver.find_element(By.NAME, "unidade").clear()
         #driver.find_element(By.NAME, "unidade").send_keys('550', Keys.ENTER)
         driver.find_element(By.NAME, "tipoSolicitacao").send_keys('2.04')
-        driver.find_element(By.NAME, "especificacao").send_keys('LEVANTAMENTO DE DADOS PARA ATUALIZACAO CADASTRAL')
+        driver.find_element(By.NAME, "especificacao").send_keys('ALTERAR SITUACAO DA LIGACAO AGUA/ESGOTO')
         try:
             popup = driver.switch_to.alert
             popup.accept()

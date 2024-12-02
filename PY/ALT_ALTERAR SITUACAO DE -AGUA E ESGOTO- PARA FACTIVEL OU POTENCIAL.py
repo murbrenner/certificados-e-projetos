@@ -5,10 +5,10 @@ import pandas as pd
 from db_login import login, driver
 from db_arquivos import teste, elaboration, abrir_ra
 
-df = pd.read_csv(teste)
+df = pd.read_csv(abrir_ra)
 login()
 
-nova_situacao = 'FACTIVEL'
+nova_situacao = 'POTENCIAL'
 
 for i in df.index:
     os = str(df['OS'][i])
