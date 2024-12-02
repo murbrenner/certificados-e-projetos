@@ -7,14 +7,14 @@ from db_arquivos import prog_fisc, teste, elaboration
 from db_fiscais import fiscais
 import time
 
-df = pd.read_csv(elaboration)
+df = pd.read_csv(teste)
 login()
 
 today = datetime.today()
 tomorrow = datetime.today() + timedelta(days=1)
 segunda = datetime.today() + timedelta(days=3)
 another_day = datetime.today() + timedelta(days=2)
-data_prog = segunda
+data_prog = tomorrow
 data_prog = data_prog.strftime("%d/%m/%Y")
 
 driver.get("http://gsan.caema.ma.gov.br:8080/gsan/exibirElaborarOrdemServicoRoteiroCriteriosAction.do?menu=sim&filtro=0&dataRoteiro={}".format(data_prog))
