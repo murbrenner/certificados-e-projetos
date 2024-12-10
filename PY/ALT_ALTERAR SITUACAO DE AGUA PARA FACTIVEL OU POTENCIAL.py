@@ -18,11 +18,11 @@ for i in df.index:
         driver.find_element(By.NAME, "situacaoLigacaoAguaNova").send_keys(nova_situacao)
         driver.find_element(By.XPATH, "//input[@value='Alterar']").click()
         alt_ok = driver.find_element(By.XPATH, "/html/body/table[2]/tbody/tr/td/table[3]/tbody/tr[1]/td[2]/div/span").text
-        print(i+1, "str(df['MATRICULA'][i])", alt_ok)
+        print(i+1, str(df['MATRICULA'][i]), alt_ok)
         ok = '1'
     except:
         nao_alt = driver.find_element(By.XPATH, '/html/body/table/tbody/tr/td/table[3]/tbody/tr[1]/td[2]/span').text
-        print(i+1, "str(df['MATRICULA'][i])", nao_alt)
+        print(i+1, str(df['MATRICULA'][i]), nao_alt)
         ok = '0'
 
     time.sleep(1)
