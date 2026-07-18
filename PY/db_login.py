@@ -2,47 +2,29 @@ from selenium.webdriver.common.by import By
 from selenium import webdriver
 import time, os
 
+
 driver = webdriver.Edge()
 
 user = os.environ.get('USR')
 senha = os.environ.get('PWD')
 
+user2 = os.environ.get('USR2')
+senha2 = os.environ.get('PWD2')
+
 def login():
-    driver.get("http://gsan.caema.ma.gov.br:8080/gsan/")
+    #driver.get("http://177.66.194.131:8080/gsan/")
+    #driver.get("http://gsan.caema.ma.gov.br:8080/gsan/")
+    driver.get("http://g1.caema.ma.gov.br/gsan/")
+    #"http://177.66.194.131:8080/gsan/"
     driver.find_element(By.NAME, 'login').send_keys(user)
     driver.find_element(By.NAME, 'senha').send_keys(senha)
+    driver.find_element(By.NAME, 'buttonLogin').click() 
+    time.sleep(0.5)
+   
+
+def login2():
+    driver.get("http://g1.caema.ma.gov.br/gsan/")
+    driver.find_element(By.NAME, 'login').send_keys(user2)
+    driver.find_element(By.NAME, 'senha').send_keys(senha2)
     driver.find_element(By.NAME, 'buttonLogin').click()
-
-def log_teste():
-    driver.get("https://c1.caema.ma.gov.br/gsan/")
-    driver.find_element(By.NAME, 'login').send_keys(user)
-    driver.find_element(By.NAME, 'senha').send_keys(senha)
-    driver.find_element(By.NAME, 'buttonLogin').click()
-
-def enc():
-    driver.maximize_window()
-    driver.get("https://docs.google.com/spreadsheets/d/1HhG9YARARX16EkQybElZ2HvC8IlR8QY-qSFL8fFphN4/edit?pli=1#gid=1805539427")
-    driver.find_element(By.NAME, "identifier").send_keys("enc.cadastrocomercial@caema.ma.gov.br")
-    driver.find_element(By.XPATH, "//*[@id='identifierNext']/div/button/span").click()
-    time.sleep(6)
-    driver.find_element(By.NAME, "Passwd").send_keys(senha)
-    driver.find_element(By.XPATH, "//*[@id='passwordNext']/div/button/span").click()
-    time.sleep(10)
-
-def enc2():
-    driver.maximize_window()
-    driver.get("https://docs.google.com/spreadsheets/d/1oK_9fFdMDJDzpXJiqT22uDPSw-QIGvLR15nChz4khOw/edit?usp=drive_link")
-    driver.find_element(By.NAME, "identifier").send_keys("enc.cadastrocomercial@caema.ma.gov.br")
-    driver.find_element(By.XPATH, "//*[@id='identifierNext']/div/button/span").click()
-    time.sleep(6)
-    driver.find_element(By.NAME, "Passwd").send_keys(senha)
-    driver.find_element(By.XPATH, "//*[@id='passwordNext']/div/button/span").click()
-    time.sleep(10)
-
-def sei_login():
-    driver.maximize_window()
-    driver.get("https://sip.sei.ma.gov.br/sip/login.php?sigla_orgao_sistema=GOVMA&sigla_sistema=SEI&infra_url=L3NlaS8=")
-    driver.find_element(By.ID, "txtUsuario").send_keys('07890072902')
-    driver.find_element(By.ID, "pwdSenha").send_keys(senha)
-    driver.find_element(By.ID, "selOrgao").send_keys('CAEMA')
-    driver.find_element(By.ID, "Acessar").click()
+    driver.get("http://g1.caema.ma.gov.br:8080/gsan/")

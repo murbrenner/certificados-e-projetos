@@ -1,24 +1,30 @@
 #USERS
-user = 'C:\\Users\\ocmvc45555\\'
-user2 = 'C:\\Users\\Murilo Brenner\\'
+userSystem = '%USERPROFILE%'
+pastaMapeada = 'G:\\Meu Drive'
+pastaLocal = 'C:\\CSV'
 
 #MUDAR O USER AQUI
-pasta_proj_py = 'Desktop\\OneDrive\\PYTHON\\CSV\\'
-downloads = f'{user}\\Downloads'
-caminho = f'{user}{pasta_proj_py}'
+projetoGsan = 'PYTHON\\AUTOMAÇÃO GSAN\\CSV'
+projetoQgis = 'PYTHON\\AUTOMAÇÃO QGIS\\CSV'
 
 #DEIXE COMO ESTÁ
-elaboration = f"{caminho}\\ELABORATION.csv"
-abrir_ra = f"{caminho}\\abrirRA.csv"
-elab_date = f"{caminho}\\ELABORATION_DATE.csv"
-gerar_cad = f"{caminho}\\GERAR_CAD.csv"
-listagem = f"{caminho}gerar-relat.csv"
-prog_fisc = f"{caminho}\\PROGFISC.csv"
-tramite = f"{caminho}\\TRAMITE.csv"
-cpf = f"{caminho}\\CPF.csv"
-teste = f"{caminho}\\teste.csv"
-relatorio_prog = f"{caminho}\\relatorio_prog.csv"
-teste2 = f"{caminho}\\teste2.csv"
-inserir_imovel = f"{caminho}\\inserirImovel.csv"
-down_path = downloads
-desprog_fisc = f"{caminho}\\DESPROGFISC.csv"
+databaseCSV1 = f'{pastaMapeada}\\{projetoGsan}\\database1.csv'
+databaseCSV2 = f'{pastaMapeada}\\{projetoGsan}\\database2.csv'
+databaseCSV3 = f'{pastaMapeada}\\{projetoGsan}\\database3.csv'
+databaseCSV4 = f'{pastaMapeada}\\{projetoGsan}\\database4.csv'
+databaseCSV5 = f'{pastaMapeada}\\{projetoGsan}\\database5.csv'
+
+databaseCSVTxt = f'{pastaMapeada}\\PYTHON\\relatorio\\databaseTxt.csv'
+
+downloads = f'{userSystem}\\Downloads'
+
+relatorioGsan1 = f'{pastaMapeada}\\{projetoGsan}\\relatorio1.csv'
+relatorioGsan2 = f'{pastaMapeada}\\{projetoGsan}\\relatorio2.csv'
+relatorioGsan3 = f'{pastaMapeada}\\{projetoGsan}\\relatorio3.csv'
+relatorioGsan4 = f'{pastaMapeada}\\{projetoGsan}\\relatorio4.csv'
+relatorioGsan5 = f'{pastaMapeada}\\{projetoGsan}\\relatorio5.csv'
+
+relatorioQgis = f'{pastaMapeada}\\{projetoQgis}\\relatorio.csv'
+relatorioPlan = f'{pastaLocal}\\relatorio.csv'
+
+relatorioTxt = f'{pastaMapeada}\\PYTHON\\relatorio\\relatorioTxt.txt'
